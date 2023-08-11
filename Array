@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int findMissingElement(int arr[], int n) {
+    int totalSum = (n * (n + 1)) / 2; // Sum of natural numbers from 1 to N
+    int arraySum = 0;
+
+    for (int i = 0; i < n - 1; i++) {
+        arraySum += arr[i];
+    }
+
+    return totalSum - arraySum;
+}
+
+int main() {
+    int N;
+    printf("Enter the value of N: ");
+    scanf("%d", &N);
+
+    int A[N - 1];
+    printf("Enter the elements of the array: ");
+    for (int i = 0; i < N - 1; i++) {
+        scanf("%d", &A[i]);
+    }
+
+    int missingElement = findMissingElement(A, N);
+    printf("The missing element is: %d\n", missingElement);
+
+    return 0;
+}
