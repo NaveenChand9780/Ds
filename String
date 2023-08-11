@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool isVowel(char c) {
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+bool isHappyString(char *s) {
+    int n = strlen(s);
+    int count = 0;
+    
+    for (int i = 0; i < n; i++) {
+        if (isVowel(s[i])) {
+            count++;
+            if (count > 2) {
+                return true;
+            }
+        } else {
+            count = 0;
+        }
+    }
+    
+    return false;
+}
+
+int main() {
+    int T;
+    scanf("%d", &T);
+    
+    while (T--) {
+        char s[100];
+        scanf("%s", s);
+        
+        if (isHappyString(s)) {
+            printf("Happy\n");
+        } else {
+            printf("Sad\n");
+        }
+    }
+    
+    return 0;
+}
